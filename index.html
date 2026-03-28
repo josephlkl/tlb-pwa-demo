@@ -1,0 +1,354 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, viewport-fit=cover"
+    />
+    <meta name="theme-color" content="#0f4c81" />
+    <meta
+      name="description"
+      content="Install landing page for the TLB Product App."
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="manifest" href="./manifest.webmanifest" />
+    <link rel="apple-touch-icon" href="./icons/icon-192.svg" />
+    <title>Install TLB Product App</title>
+    <style>
+      :root {
+        --tlb-ink: #281805;
+        --tlb-body: #212529;
+        --tlb-brown: #261808;
+        --tlb-copper: #a06b3c;
+        --tlb-sand: #f4eee8;
+        --tlb-line: #e7ddd1;
+        --tlb-panel: #ffffff;
+        color: var(--tlb-body);
+        background: #fff;
+        font-family:
+          "Noto Sans SC",
+          system-ui,
+          -apple-system,
+          "Segoe UI",
+          Roboto,
+          "Helvetica Neue",
+          Arial,
+          sans-serif;
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      html {
+        scroll-behavior: smooth;
+      }
+
+      body {
+        margin: 0;
+        min-width: 320px;
+        background:
+          linear-gradient(180deg, var(--tlb-sand) 0, var(--tlb-sand) 84px, #fff 84px, #fff 100%);
+      }
+
+      main {
+        width: min(980px, calc(100% - 32px));
+        margin: 0 auto;
+        padding: 24px 0 72px;
+      }
+
+      .topbar {
+        background: var(--tlb-brown);
+        color: #fff;
+        font-size: 0.92rem;
+      }
+
+      .topbar__inner {
+        width: min(1100px, calc(100% - 32px));
+        margin: 0 auto;
+        min-height: 44px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 16px;
+      }
+
+      .brand {
+        display: inline-flex;
+        align-items: center;
+        gap: 12px;
+        color: inherit;
+        text-decoration: none;
+      }
+
+      .brand-mark {
+        width: 38px;
+        height: 38px;
+        border-radius: 999px;
+        display: grid;
+        place-items: center;
+        background: rgba(255, 255, 255, 0.1);
+        font-weight: 700;
+      }
+
+      .topbar__link {
+        color: #fff;
+        text-decoration: none;
+        border-bottom: 1.5px solid transparent;
+      }
+
+      .topbar__link:hover {
+        border-bottom-color: #fff;
+      }
+
+      .hero,
+      .steps,
+      .next {
+        background: var(--tlb-panel);
+        border: 1px solid var(--tlb-line);
+        border-radius: 24px;
+        box-shadow: 0 16px 40px rgba(40, 24, 5, 0.06);
+      }
+
+      .hero {
+        padding: 40px;
+        position: relative;
+        overflow: hidden;
+      }
+
+      .hero::after {
+        content: "";
+        position: absolute;
+        inset: 0 0 auto auto;
+        width: 260px;
+        height: 260px;
+        background:
+          radial-gradient(circle, rgba(160, 107, 60, 0.18) 0, rgba(160, 107, 60, 0) 70%);
+        pointer-events: none;
+      }
+
+      .eyebrow {
+        margin: 0 0 10px;
+        text-transform: uppercase;
+        letter-spacing: 0.14em;
+        font-size: 0.76rem;
+        font-weight: 700;
+        color: var(--tlb-copper);
+      }
+
+      h1 {
+        margin: 0 0 16px;
+        color: var(--tlb-ink);
+        font-size: clamp(2.35rem, 4.8vw, 4.1rem);
+        line-height: 1.02;
+        letter-spacing: -0.03em;
+        max-width: 12ch;
+      }
+
+      h2 {
+        margin: 0;
+        color: var(--tlb-ink);
+        font-size: clamp(1.3rem, 2.2vw, 1.8rem);
+        line-height: 1.15;
+      }
+
+      p,
+      li {
+        color: rgba(33, 37, 41, 0.86);
+        line-height: 1.5;
+      }
+
+      .actions,
+      .cards {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 12px;
+      }
+
+      .actions {
+        margin-top: 24px;
+      }
+
+      .button {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        min-height: 44px;
+        padding: 0 20px;
+        border-radius: 999px;
+        font-weight: 600;
+        text-decoration: none;
+        border: 2px solid transparent;
+      }
+
+      .button-primary {
+        background: var(--tlb-brown);
+        color: #fff;
+      }
+
+      .button-secondary {
+        background: transparent;
+        border-color: var(--tlb-brown);
+        color: var(--tlb-brown);
+      }
+
+      .status {
+        min-height: 24px;
+        margin-top: 12px;
+        color: var(--tlb-copper);
+        font-weight: 500;
+      }
+
+      .steps,
+      .next {
+        margin-top: 24px;
+        padding: 28px;
+      }
+
+      .cards {
+        margin-top: 16px;
+      }
+
+      .card {
+        flex: 1 1 280px;
+        border-radius: 18px;
+        background: #fff;
+        border: 1px solid var(--tlb-line);
+        padding: 20px;
+      }
+
+      ol {
+        margin: 14px 0 0;
+        padding-left: 18px;
+      }
+
+      @media (max-width: 700px) {
+        .topbar__inner {
+          padding: 8px 0;
+          flex-direction: column;
+          align-items: flex-start;
+        }
+
+        h1 {
+          max-width: 12ch;
+        }
+
+        .hero {
+          padding: 28px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="topbar">
+      <div class="topbar__inner">
+        <a class="brand" href="./">
+          <span class="brand-mark">TLB</span>
+          <span>Transamerica Life Bermuda</span>
+        </a>
+      </div>
+    </div>
+    <main>
+      <section class="hero">
+        <p class="eyebrow">TLB Product App</p>
+        <h1>Install the TLB product experience.</h1>
+        <p>
+          This page is only for installation and launch. The product app itself
+          contains no install instructions and stays focused on TLB insurance
+          solutions.
+        </p>
+        <div class="actions">
+          <button class="button button-primary" id="installButton" type="button">
+            Install App
+          </button>
+          <a class="button button-secondary" href="./app.html">Open Product App</a>
+        </div>
+        <p class="status" id="installStatus"></p>
+      </section>
+
+      <section class="steps" id="installHelp">
+        <p class="eyebrow">Install Steps</p>
+        <div class="cards">
+          <article class="card">
+            <p class="eyebrow">iOS</p>
+            <h2>Add to Home Screen</h2>
+            <ol>
+              <li>Open this page in Safari.</li>
+              <li>Tap the Share button.</li>
+              <li>Choose Add to Home Screen.</li>
+            </ol>
+          </article>
+          <article class="card">
+            <p class="eyebrow">Android</p>
+            <h2>Use the browser prompt</h2>
+            <ol>
+              <li>Open this page in Chrome.</li>
+              <li>Tap Install when the browser offers it.</li>
+              <li>Launch the app from the home screen.</li>
+            </ol>
+          </article>
+        </div>
+      </section>
+
+    </main>
+    <script>
+      let deferredPrompt = null;
+      const installButton = document.getElementById('installButton');
+      const installStatus = document.getElementById('installStatus');
+
+      function platform() {
+        const ua = navigator.userAgent.toLowerCase();
+        if (/iphone|ipad|ipod/.test(ua)) return 'ios';
+        if (/android/.test(ua)) return 'android';
+        return 'desktop';
+      }
+
+      function updateStatus(message) {
+        installStatus.textContent = message;
+      }
+
+      window.addEventListener('beforeinstallprompt', (event) => {
+        event.preventDefault();
+        deferredPrompt = event;
+        installButton.hidden = false;
+        updateStatus('App install is available on this device.');
+      });
+
+      installButton.addEventListener('click', async () => {
+        if (deferredPrompt) {
+          await deferredPrompt.prompt();
+          const choice = await deferredPrompt.userChoice;
+          updateStatus(
+            choice.outcome === 'accepted'
+              ? 'Install accepted.'
+              : 'Install dismissed.'
+          );
+          deferredPrompt = null;
+          return;
+        }
+
+        if (platform() === 'ios') {
+          updateStatus('Use Safari Share > Add to Home Screen.');
+          document.getElementById('installHelp').scrollIntoView({ behavior: 'smooth' });
+          return;
+        }
+
+        updateStatus('Install prompt not available yet. Use Chrome on Android or continue to the product app.');
+      });
+
+      if (platform() === 'ios') {
+        updateStatus('iPhone and iPad installation uses Add to Home Screen in Safari.');
+      } else if (platform() === 'android') {
+        updateStatus('Android installation will use the browser install prompt when eligible.');
+      } else {
+        updateStatus('Desktop browsers can open the product app directly.');
+      }
+    </script>
+  </body>
+</html>
